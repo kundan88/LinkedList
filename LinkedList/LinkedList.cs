@@ -8,47 +8,65 @@ namespace LinkedList
 {
     public class LinkedList
     {
-        public Node head;
-        public void Add(int data)
+        public Node Head;
+        public LinkedList()
         {
-            Node node = new Node(data);
+            this.Head = null;
+        }
+        public void AddNode(Node node)
+        {
             //Check wether list is empty or not then create node as head
-            if (this.head == null)
+            if (Head == null) 
             {
-                this.head = node;
+                Head = node;
             }
             else
-            {              
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
-                Console.WriteLine("Inserted Data: " + node.data);
+            {
+                //if node than add new node as head
+                node.next = Head;
+                Head = node;
+            }
+        }
+        public void AddStart(int data)
+        {
+            //Create node to add in linked list
+            Node node = new Node(data);
+            //Check if list is empty then new node become head node
+            if (this.Head == null)
+            {
+                this.Head = node;
             }
 
+            else
+            {
+                //New node location will store the address of previous node 
+                node.next = Head;
+                //node become head
+                Head = node;
+            }
+            Console.WriteLine("Added at starting of linkedlist is " + data);
         }
         public void Display()
         {
             //temp variable will head
-            Node temp = head;
+            Node temp = Head;
             //Check wether list is empty or not
-            if (temp == null)
+            if (this.Head == null)
             {
-                Console.WriteLine("LinkedList Is Empty");
+                Console.WriteLine("LinkedList is Empty");
             }
-            else
+            while (temp != null)
             {
                 //Check until temp will null
-                while (temp != null)
+                Console.Write(temp.data + " ");
+                if (temp.next != null)
                 {
-                    Console.WriteLine(temp.data + " ");
-                    //for traversing the node
-                    temp = temp.next;
+                    Console.Write("-->");
                 }
+                //for traversing the node
+                temp = temp.next;
             }
+            Console.WriteLine();
         }
     }
 }
-
