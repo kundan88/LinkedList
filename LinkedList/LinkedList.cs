@@ -87,6 +87,20 @@ namespace LinkedList
             }
             Console.WriteLine("\nAdded node in between: " + nodedata);
         }
+        public void DeleteFirstNode()
+        {
+            //check if list is empty or not
+            if (this.Head == null)
+            {
+                Console.WriteLine("Linked list is empty");
+            }
+            //put temp variable become head in list
+            Node temp = this.Head;
+            //change head to next node to delete previous node
+            this.Head = this.Head.next;
+
+            Console.WriteLine("\nRemoved from the linkedlist :" + temp.data);
+        }
         public void Display()
         {
             //temp variable will head
