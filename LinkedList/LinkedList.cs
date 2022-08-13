@@ -9,14 +9,10 @@ namespace LinkedList
     public class LinkedList
     {
         public Node Head;
-        public LinkedList()
-        {
-            this.Head = null;
-        }
-        public void AddNode(Node node)
+        public void Add(Node node)
         {
             //Check wether list is empty or not then create node as head
-            if (Head == null) 
+            if (Head == null)
             {
                 Head = node;
             }
@@ -27,6 +23,28 @@ namespace LinkedList
                 Head = node;
             }
         }
+        public void Append(int data)
+        {
+            //Create node to add in linked list
+            Node node = new Node(data);
+            //Check if list is empty then new node become head node
+            if (this.Head == null)
+            {
+                this.Head = node;
+            }
+            else
+            {
+                //if not then put head in temp variable
+                Node temp = Head;
+
+                while (temp.next != null)    //check until node next location is null so all node can added
+                {
+                    temp = temp.next;   //temp variable changed so next node can added
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("Added at starting of linkedlist is " + data);
+        }
         public void AddStart(int data)
         {
             //Create node to add in linked list
@@ -36,7 +54,6 @@ namespace LinkedList
             {
                 this.Head = node;
             }
-
             else
             {
                 //New node location will store the address of previous node 
@@ -69,4 +86,6 @@ namespace LinkedList
             Console.WriteLine();
         }
     }
+
+
 }
