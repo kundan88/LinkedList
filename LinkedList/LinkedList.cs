@@ -101,6 +101,24 @@ namespace LinkedList
 
             Console.WriteLine("\nRemoved from the linkedlist :" + temp.data);
         }
+        public void DeleteLastNode()
+        {
+            //check if list is empty or not
+            if (this.Head == null)
+            {
+                Console.WriteLine("Linked list is empty");
+            }
+            //temp variable will become head of the list now
+            Node temp = this.Head;
+            //check until temp next nodes's next location is null
+            while (temp.next.next != null)
+            {
+                temp = temp.next;
+            }
+            //after getting this node change its location to null
+            temp.next = null;
+            Console.WriteLine("\n");
+        }
         public void Display()
         {
             //temp variable will head
@@ -124,6 +142,4 @@ namespace LinkedList
             Console.WriteLine();
         }
     }
-
-
 }
