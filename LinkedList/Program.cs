@@ -5,16 +5,12 @@
         public static void Main(string[] args)
         {
             LinkedList list = new LinkedList();
-
-            Node node1 = new Node(76);
-            Node node2 = new Node(30);
-            Node node3 = new Node(56);
-            list.Add(node1);
-            list.Add(node2);
-            list.Add(node3);
+            Console.WriteLine("Append the list");
+            list.Append(56);
+            list.Append(70);
             list.Display();
-            Console.WriteLine("After Appending\n");
-            list.Append(40);
+            Console.WriteLine("Adding Node after Node.");
+            list.AddNodeAfterNode(30, 56);
             list.Display();
         }
     }
