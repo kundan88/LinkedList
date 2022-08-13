@@ -119,6 +119,22 @@ namespace LinkedList
             temp.next = null;
             Console.WriteLine("\n");
         }
+        public bool Search(int data)
+        {
+            //temp variable is head now
+            Node temp = this.Head;
+            //check until temp location will null
+            while (temp != null)
+            {
+                //if temp node data is equal to value to be searched
+                if (temp.data == data)
+                {
+                    return true;
+                }
+                temp = temp.next;
+            }
+            return false;
+        }
         public void Display()
         {
             //temp variable will head
